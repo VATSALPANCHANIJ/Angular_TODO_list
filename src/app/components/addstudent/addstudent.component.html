@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12 mt-5">
+    <form [formGroup]="addStudent">
+      <h3>Register-Student</h3>
+
+      <legend><span class=""></span>Your Basic Info</legend>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user_name" formControlName="name" required="Enter the Your Name">
+      <span class="validation" *ngIf="name && name.invalid && name.touched">*Name is a required</span>
+
+      <label for="email">Email:</label>
+      <input type="email" id="mail" name="user_email" formControlName="email" required="Enter the Your Email">
+      <span class="validation" *ngIf="email && email.invalid && email.touched">* Email is a required</span>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="user_password" formControlName="password"
+        required="Enter the Your Password">
+      <span class="validation" *ngIf="password && password.invalid && password.touched">* Password is a required minLength-5 and maxLength-10</span>
+
+
+      <button type="submit" routerLink="/List" [disabled]="addStudent.invalid" (click)="SaveData()">Sign Up</button>
+      <!-- <button type="submit" routerLink="/List">Sign Up</button> -->
+
+    </form>
+  </div>
+</div>
